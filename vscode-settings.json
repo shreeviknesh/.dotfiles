@@ -8,6 +8,7 @@
         "**/.settings": true,
         "**/target": true
     },
+
     "workbench.startupEditor": "none",
     "editor.wordWrap": "on",
     "window.restoreWindows": "none",
