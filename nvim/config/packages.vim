@@ -1,4 +1,4 @@
-call plug#begin('~/AppData/Local/nvim/plugged/')
+call plug#begin('~/.config/nvim/plugged/')
 
 "airline bar in vim
 Plug 'vim-airline/vim-airline'
