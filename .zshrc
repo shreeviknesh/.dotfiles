@@ -111,3 +111,5 @@ cd ~
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# To solve permission denied access to /usr/lib/node_modules
+npm set prefix ~/.npm; path+=$HOME/.npm/bin; path+=./node_modules/.bin
