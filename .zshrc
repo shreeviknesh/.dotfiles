@@ -75,13 +75,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=( zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-alias python="python3.8"
-alias pip="pip3"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -106,10 +103,20 @@ alias pip="pip3"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+# Starting at root directory
 cd ~
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# To solve permission denied access to /usr/lib/node_modules
+# Configuring npm - solving write access violation
 npm set prefix ~/.npm; path+=$HOME/.npm/bin; path+=./node_modules/.bin
+
+# Rust-lang support
+path+=$HOME/.cargo/env
+
+# Custom aliases
+if [ -e $HOME/.bash_aliases ]; then
+    source $HOME/.bash_aliases
+fi
+

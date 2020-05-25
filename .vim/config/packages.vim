@@ -1,36 +1,30 @@
-call plug#begin('~/.config/nvim/plugged/')
-
-"airline bar in vim
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+call plug#begin('~/.vim/plugged/')
 
 "colorscheme
 Plug 'morhetz/gruvbox'
 
-"Fuzzy finder
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
 "Syntax highlighting for over 100 languages
 Plug 'sheerun/vim-polyglot'
 
-"Color Highlighter
-Plug 'ap/vim-css-color'
+"Powerline for vim
+Plug 'vim-airline/vim-airline'                    
+Plug 'vim-airline/vim-airline-themes'
 
-"Auto Complete
+"Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-"Emmet
-Plug 'mattn/emmet-vim'
+"Rust support
+Plug 'rust-lang/rust.vim'
+
 call plug#end()
 
-"Customization options for the above packages
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='dark'
 colorscheme gruvbox
+set background=dark
 
-"We don't need that
-let g:polyglot_disabled = ['css']
+"Vim-airline settings
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='base16'
 
-"Fuzzy Finder
-set rtp+=~/.fzf
+"Rustfmt on save
+let g:rustfmt_autosave = 1

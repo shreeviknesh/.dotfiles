@@ -1,26 +1,32 @@
-syntax on 				"syntax highlighting
-set nu 					"numbering
-set rnu					"relative numbering
-set numberwidth=5
+let mapleader = " "
+syntax on
 
-set showmatch 			"show matching brackets
-set nocompatible		"dont want vi compatibility
-
-set wrap				"word wrap
-set tabstop=4			"tab size
-set shiftwidth=4		"auto-indent width
-set softtabstop=4		"idk but keep it
-set expandtab			"expand tabs to spaces
-
-set encoding=utf-8		"encoding
-set t_Co=256			"256 colors
-
-set clipboard=unnamedplus "copy-paste
-
-set nowritebackup           "pls dont backup
-set noswapfile              "none of those annoying .swp files anymore
-
+set nu rnu
+set noerrorbells
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+set nowrap
+set smartcase
+set noswapfile 
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set incsearch
+set clipboard+=unnamed
+set clipboard+=unnamedplus
 set cursorline
+
+set colorcolumn=80
+highlight ColorColumn ctermbg=59 guibg=lightgrey
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=50
 
 " Stop using arrow keys dude
 nnoremap <Left> :echoe "Use h"<CR>
@@ -31,4 +37,3 @@ nnoremap <Down> :echoe "Use j"<CR>
 " remaping shift+tab to switch between buffers
 nnoremap  <silent> <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
-
