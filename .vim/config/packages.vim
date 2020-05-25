@@ -16,6 +16,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Rust support
 Plug 'rust-lang/rust.vim'
 
+"Nerdtree - directories
+Plug 'scrooloose/nerdtree'
+
 call plug#end()
 
 "Setting THE BEST colorscheme
@@ -29,6 +32,3 @@ let g:airline_theme='base16'
 
 "Rustfmt on save
 let g:rustfmt_autosave = 1
-"Support for RustRun to work properly
-command -nargs=* RR up | execute "!cargo run" <q-args>
-command -nargs=* RRR up | execute "!cargo run --release" <q-args>

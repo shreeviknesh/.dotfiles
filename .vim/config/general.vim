@@ -37,3 +37,8 @@ nnoremap <Down> :echoe "Use j"<CR>
 " remaping shift+tab to switch between buffers
 nnoremap  <silent> <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
+
+" mapping Ctrl+F5 for certain languages
+command! -nargs=* RR up | execute "!cargo run" <q-args>
+autocmd FileType rust nmap <buffer> <F5> :w <CR> :RR <CR>
+autocmd FileType rust imap <buffer> <F5> :w <CR> :RR <CR>
