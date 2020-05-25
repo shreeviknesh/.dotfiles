@@ -120,4 +120,5 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
+# Fzf settings
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -17,6 +17,7 @@ set incsearch
 set clipboard+=unnamed
 set clipboard+=unnamedplus
 set cursorline
+set autochdir "Automatically switch working directory to the file path
 
 set colorcolumn=100
 highlight ColorColumn ctermbg=59 guibg=lightgrey
@@ -42,3 +43,6 @@ nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :wri
 command! -nargs=* RR up | execute "!cargo run" <q-args>
 autocmd FileType rust nmap <buffer> <F5> :w <CR> :RR <CR>
 autocmd FileType rust imap <buffer> <F5> :w <CR> :RR <CR>
+
+"Nerdtree settings
+map <C-n> :NERDTreeToggle<CR>

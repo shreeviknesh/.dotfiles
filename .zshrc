@@ -120,3 +120,5 @@ if [ -e $HOME/.bash_aliases ]; then
     source $HOME/.bash_aliases
 fi
 
+# Fzf settings
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

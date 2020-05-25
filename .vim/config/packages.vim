@@ -19,6 +19,10 @@ Plug 'rust-lang/rust.vim'
 "Nerdtree - directories
 Plug 'scrooloose/nerdtree'
 
+"Fzf
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': '~/.fzf/install' }
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 "Setting THE BEST colorscheme
@@ -32,3 +36,8 @@ let g:airline_theme='base16'
 
 "Rustfmt on save
 let g:rustfmt_autosave = 1
+
+"Fzf settings
+let g:fzf_preview_window = 'right:50%'
+nnoremap <C-f> :FZF<CR>
+inoremap <C-f> :FZF<CR>
