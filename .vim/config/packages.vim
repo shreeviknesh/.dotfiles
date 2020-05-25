@@ -18,6 +18,7 @@ Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
+"Setting THE BEST colorscheme
 colorscheme gruvbox
 set background=dark
 
@@ -28,3 +29,6 @@ let g:airline_theme='base16'
 
 "Rustfmt on save
 let g:rustfmt_autosave = 1
+"Support for RustRun to work properly
+command -nargs=* RR up | execute "!cargo run" <q-args>
+command -nargs=* RRR up | execute "!cargo run --release" <q-args>

@@ -18,7 +18,7 @@ set clipboard+=unnamed
 set clipboard+=unnamedplus
 set cursorline
 
-set colorcolumn=80
+set colorcolumn=100
 highlight ColorColumn ctermbg=59 guibg=lightgrey
 
 " Give more space for displaying messages.

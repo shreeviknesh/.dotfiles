@@ -20,4 +20,4 @@ fun! GoCoc()
     nnoremap <buffer> <leader>cr :CocRestart
 endfun
 
-autocmd FileType python :call GoCoc()
+autocmd FileType cpp,cxx,h,hpp,c,python,rust,javascript,typescript :call GoCoc()
