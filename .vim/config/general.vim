@@ -44,5 +44,8 @@ command! -nargs=* RR up | execute "!cargo run" <q-args>
 autocmd FileType rust nmap <buffer> <F5> :w <CR> :RR <CR>
 autocmd FileType rust imap <buffer> <F5> :w <CR> :RR <CR>
 
-"Nerdtree settings
-map <C-n> :NERDTreeToggle<CR>
+" Basically Alt-Up or Alt-Down functionality
+" Move the selected contents up or down with highlight and format
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
