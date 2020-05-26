@@ -6,6 +6,7 @@ set nocompatible
 
 syntax on
 set encoding=utf-8
+set fileformat=unix
 set nu rnu                  " Line numbering
 set noerrorbells visualbell " No sounds at all
 set t_vb=                   " No flashing pls
@@ -18,16 +19,26 @@ set autochdir               " Automatically switch working directory to the file
 set incsearch               " Incremental search
 set hlsearch                " Highlight the search
 
+set background=dark         " Dark mode is the boss
 set cursorline              " Highlight current line
 set colorcolumn=100         " Column width 100
-highlight ColorColumn ctermbg=59 guibg=lightgrey 
+
+augroup MyColor             " Overwrite the colorcolumn color set by the colorscheme to GREEN
+    autocmd!
+    autocmd ColorScheme * highlight ColorColumn ctermbg=lightgreen ctermfg=black
+augroup END
+
+set splitbelow splitright   " The splits should be intuitive
+
+set foldmethod=indent
+set foldlevel=99
 
 " ================ Tabs/Indentation Config ====================
 
 set tabstop=4 softtabstop=4 shiftwidth=4 " Set tab length to be 4
 set expandtab                            " Expand tabs to spaces
 set smarttab                             " Smart tab on enter
-set smartindent autoindent 
+set smartindent autoindent
 set nowrap                               " No textwrapping
 augroup Format-Options                   " DON'T INSERT COMMENTS ON ENTER PLS
         autocmd!
@@ -42,7 +53,8 @@ set undofile               " Persistent undo file
 set undodir=~/.vim/undodir " Persistent undo file directory
 
 " ================ Remaps ====================
-let mapleader = " "
+let mapleader  = " "
+set timeoutlen=200
 
 " Stop using arrow keys dude
 nnoremap <Left>  :echoe "Use h"<CR>
@@ -60,6 +72,12 @@ map <leader>j :wincmd j<CR>
 map <leader>k :wincmd k<CR>
 map <leader>l :wincmd l<CR>
 
+" Switching between splits
+nnoremap <C-j> <C-W><C-J>
+nnoremap <C-k> <C-W><C-K>
+nnoremap <C-l> <C-W><C-L>
+nnoremap <C-h> <C-W><C-H>
+
 " Mapping Ctrl+F5 for Rust
 command! -nargs=* RR up | execute "!cargo run" <q-args>
 autocmd FileType rust nmap <buffer> <F5> :w <CR> :RR <CR>
@@ -70,13 +88,14 @@ autocmd FileType rust imap <buffer> <F5> :w <CR> :RR <CR>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-" System clipboard copy paste
-inoremap <C-v> <ESC>"+pa
-vnoremap <C-c> "+y
-vnoremap <C-d> "+d
-
+" Reload configuration and open config files
+nnoremap <Leader><F5> :source $MYVIMRC <CR>
+command! -nargs=* EditConfig up | execute "next ~/.vimrc ~/.vim/config/*.vim" <q-args>
 
 " ================ Import All other settings ====================
+
 :for f in split(globpath('~/.vim/config/', '*.vim'), '\n')
 :   execute 'source' f
 :endfor
+
+" ================ END ====================

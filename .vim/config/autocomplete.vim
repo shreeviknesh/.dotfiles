@@ -22,5 +22,11 @@ fun! GoCoc()
     nnoremap <buffer> <leader>cr :CocRestart
 endfun
 
-" Call GoCoc for these filetypes
-autocmd FileType cpp,cxx,h,hpp,c,rust :call GoCoc()
+fun! TrimWhiteSpace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+autocmd  BufWritePre * :call TrimWhiteSpace()
+autocmd FileType cpp,cxx,h,hpp,c,rust,py :call GoCoc()
