@@ -1,4 +1,4 @@
-" ================ Installing Packages ====================
+" ========================= Installing Packages ===================================================
 call plug#begin('~/.vim/plugged/')
 
 " colorscheme
@@ -29,7 +29,7 @@ Plug 'junegunn/vim-easy-align' " Align
 
 call plug#end()
 
-" ================ Custom Settings for Packages ====================
+" ========================= Custom Settings for Packages ==========================================
 
 colorscheme gruvbox         " Best Color Scheme ever
 "colorscheme default        " Testing
@@ -59,7 +59,7 @@ inoremap <C-f> :FZF<CR>
 " Vim-fugitive Settings
 nmap <Leader>gs :G<CR>
 
-" ================ NERDTree Settings ====================
+" ========================= NERDTree Settings =====================================================
 " Toggle NERDTree with Leader-n
 nmap     <Leader>n :NERDTreeToggle<Enter>
 nnoremap <silent>  <Leader>nf :NERDTreeFind<CR>
@@ -75,4 +75,4 @@ let NERDTreeMinimalUI        = 1 " Prettier
 let NERDTreeDirArrows        = 1 " Prettier
 let NERDTreeQuitOnOpen       = 1 " Quit NERDTree when a file is opened
 
-" ================ END ====================
+" ========================= END ===================================================================
