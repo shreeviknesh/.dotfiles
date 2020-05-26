@@ -1,5 +1,6 @@
 " Toggle NERDTree with Ctrn-n
-nmap <C-n> :NERDTreeToggle<CR>
+nmap <C-n> :NERDTreeToggle<Enter>
+nnoremap <silent> <Leader>n :NERDTreeFind<CR>
 
 " Open NERDTree by default
 autocmd StdinReadPre * let s:std_in=1

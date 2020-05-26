@@ -23,6 +23,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': '~/.fzf/install' }
 Plug 'junegunn/fzf.vim'
 
+" Git
+Plug 'tpope/vim-fugitive'
+
 call plug#end()
 
 "Setting THE BEST colorscheme
@@ -41,3 +44,6 @@ let g:rustfmt_autosave = 1
 let g:fzf_preview_window = 'right:50%'
 nnoremap <C-f> :FZF<CR>
 inoremap <C-f> :FZF<CR>
+
+"Vim-fugitive Settings
+nmap <Leader>gs :G<CR>

@@ -9,6 +9,7 @@ syntax on
 
 set nu rnu "line numbering
 set noerrorbells visualbell "no sounds at all
+set t_vb= "No flashing pls
 
 "Tabs and indentation
 set tabstop=4 softtabstop=4
@@ -17,6 +18,11 @@ set expandtab
 set smarttab
 set smartindent autoindent
 set nowrap
+"DON'T INSERT COMMENTS ON ENTER PLS
+augroup Format-Options 
+        autocmd!
+        autocmd BufEnter * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+augroup END
 
 set noswapfile "None of that ugly stuff
 set nobackup
@@ -27,12 +33,13 @@ set incsearch "Incremental search
 set hlsearch
 
 set cursorline "Highlight current line
+
+" This causes some problems
 set autochdir "Automatically switch working directory to the file path
 
 set colorcolumn=100
 highlight ColorColumn ctermbg=59 guibg=lightgrey
 
-" Give more space for displaying messages.
 set cmdheight=2 "Give more space for displaying messages
 set hidden "Buffers can exist in the background
 set updatetime=50 "Having higher updatetimes causes lag
@@ -49,7 +56,13 @@ nnoremap <Down> :echoe "Use j"<CR>
 nnoremap  <silent> <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
-" mapping Ctrl+F5 for certain languages
+" Switching between buffers
+map <leader>h :wincmd h<CR>
+map <leader>j :wincmd j<CR>
+map <leader>k :wincmd k<CR>
+map <leader>l :wincmd l<CR>
+
+" mapping Ctrl+F5 for Rust
 command! -nargs=* RR up | execute "!cargo run" <q-args>
 autocmd FileType rust nmap <buffer> <F5> :w <CR> :RR <CR>
 autocmd FileType rust imap <buffer> <F5> :w <CR> :RR <CR>
