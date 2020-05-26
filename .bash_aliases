@@ -1,17 +1,16 @@
-alias cl=clear
-alias cls="clear && ls -a"
+alias cl  = clear
+alias cls = "clear && ls -a"
 
 # Custom git aliases
-alias g="git"
-alias gs="git status"
-alias gcm="git commit -m"
-alias gcam="git commit -am"
-alias gf="git fetch"
-alias gi="git init"
-alias gpul="git pull"
-alias gpus="git push"
+alias g    = "git"
+alias gs   = "git status"
+alias gcm  = "git commit -m"
+alias gcam = "git commit -am"
+alias gf   = "git fetch"
+alias gi   = "git init"
+alias gpul = "git pull"
+alias gpus = "git push"
 
-# alias gcl="git clone"
 # git clone function
 # - the whole path is the repo name if it starts with https
 # - if it doesn't, it's one of my own repositories
@@ -32,16 +31,14 @@ ga() {
     fi
 }
 
-
-
 # Custom rust aliases
-alias cr="cargo run"
-alias crr="cargo run --release"
-alias cb="cargo build"
-alias cbr="cargo build --release"
-alias cc="cargo check"
+alias cr  = "cargo run"
+alias crr = "cargo run --release"
+alias cb  = "cargo build"
+alias cbr = "cargo build --release"
+alias cc  = "cargo check"
 
 # Custom python aliases
-alias python=python3.8
-alias pip=pip3
+alias python = python3.8
+alias pip    = pip3
 

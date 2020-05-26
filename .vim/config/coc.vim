@@ -1,8 +1,10 @@
+" Taken from COC documentation
 function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" Custom function to be called for certain actions
 fun! GoCoc()
     inoremap <buffer> <silent><expr> <TAB>
                 \ pumvisible() ? "\<C-n>" :
@@ -20,4 +22,5 @@ fun! GoCoc()
     nnoremap <buffer> <leader>cr :CocRestart
 endfun
 
+" Call GoCoc for these filetypes
 autocmd FileType cpp,cxx,h,hpp,c,python,rust,javascript,typescript :call GoCoc()
