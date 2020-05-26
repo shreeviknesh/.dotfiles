@@ -5,6 +5,8 @@ Plug 'morhetz/gruvbox'
 
 " Syntax highlighting, autocomplete and language support
 Plug 'sheerun/vim-polyglot'
+"Plug 'townk/vim-autoclose'
+Plug 'cohama/lexima.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rust-lang/rust.vim'
 

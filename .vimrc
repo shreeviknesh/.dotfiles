@@ -70,6 +70,12 @@ autocmd FileType rust imap <buffer> <F5> :w <CR> :RR <CR>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+" System clipboard copy paste
+inoremap <C-v> <ESC>"+pa
+vnoremap <C-c> "+y
+vnoremap <C-d> "+d
+
+
 " ================ Import All other settings ====================
 :for f in split(globpath('~/.vim/config/', '*.vim'), '\n')
 :   execute 'source' f

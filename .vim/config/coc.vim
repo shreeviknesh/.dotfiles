@@ -23,4 +23,4 @@ fun! GoCoc()
 endfun
 
 " Call GoCoc for these filetypes
-autocmd FileType cpp,cxx,h,hpp,c,python,rust,javascript,typescript :call GoCoc()
+autocmd FileType cpp,cxx,h,hpp,c,rust :call GoCoc()
