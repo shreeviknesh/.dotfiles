@@ -28,5 +28,5 @@ fun! TrimWhiteSpace()
     call winrestview(l:save)
 endfun
 
-autocmd  BufWritePre * :call TrimWhiteSpace()
-autocmd FileType cpp,cxx,h,hpp,c,rust,py :call GoCoc()
+autocmd BufWritePre * :call TrimWhiteSpace()
+autocmd FileType cpp,cxx,h,hpp,c,rust,python :call GoCoc()
