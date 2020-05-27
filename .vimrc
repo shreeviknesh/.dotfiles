@@ -12,6 +12,7 @@ set noerrorbells visualbell " No sounds at all
 set t_vb=                   " No flashing pls
 
 set cmdheight=2             " Give more space for displaying messages
+set showcmd                 " Show the current command that is being typed
 set hidden                  " Buffers can exist in the background
 set updatetime=50           " Having higher updatetimes causes lag
 

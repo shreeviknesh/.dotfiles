@@ -37,7 +37,7 @@ colorscheme gruvbox         " Best Color Scheme ever
 " Vim-airline settings
 let g:airline_powerline_fonts            = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme                      = 'base16'
+let g:airline_theme                      = 'luna'
 
 " Rust.vim settings
 let g:rustfmt_autosave = 1
