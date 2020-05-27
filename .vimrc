@@ -24,9 +24,9 @@ set background=dark         " Dark mode is the boss
 set cursorline              " Highlight current line
 set colorcolumn=100         " Column width 100
 
-augroup MyColor             " Overwrite the colorcolumn color set by the colorscheme to GREEN
+augroup ColumnColor         " Overwrite the colorcolumn color set by the colorscheme to GREEN
     autocmd!
-    autocmd ColorScheme * highlight ColorColumn ctermbg=lightgreen ctermfg=black
+    autocmd ColorScheme * highlight ColorColumn ctermbg=green ctermfg=black
 augroup END
 
 set splitbelow splitright   " The splits should be intuitive
@@ -39,8 +39,8 @@ set smarttab                             " Smart tab on enter
 set smartindent autoindent
 set nowrap                               " No textwrapping
 augroup Format-Options                   " DON'T INSERT COMMENTS ON ENTER PLS
-        autocmd!
-        autocmd BufEnter * setlocal formatoptions-=c formatoptions-=r formatoptions-=o formatoptions-=t
+    autocmd!
+    autocmd BufEnter * setlocal formatoptions-=c formatoptions-=r formatoptions-=o formatoptions-=t
 augroup END
 
 " ========================= Vim Files Config ======================================================
@@ -61,7 +61,9 @@ nnoremap <Up>    :echoe "Use k"<CR>
 nnoremap <Down>  :echoe "Use j"<CR>
 
 " Unhighlight search on double escape
-nnoremap <esc><esc> :noh<CR><esc><esc>
+nnoremap <silent> <esc><esc> :noh<CR><esc><esc>
+" Use ii to to to normal mode from insert mode
+inoremap ii <esc>
 
 " Remaping shift+tab to switch between buffers
 nnoremap <silent> <tab>   :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR> :bnext<CR>
@@ -92,6 +94,16 @@ vnoremap K :m '<-2<CR>gv=gv
 " Reload configuration and open config files
 nnoremap <Leader><F5> :source $MYVIMRC <CR>
 command! -nargs=* EditConfig up | execute "next ~/.vimrc ~/.vim/config/*.vim" <q-args>
+
+" WSL yank support
+" Actually pretty useless, I need the inverse BUT CAN'T FIND IT
+let s:clip = '/mnt/c/Windows/System32/clip.exe'
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * if v:event.operator ==# 'y' | call system('cat|' . s:clip, @0) | endif
+    augroup END
+end
 
 " ========================= Import All other settings =============================================
 
