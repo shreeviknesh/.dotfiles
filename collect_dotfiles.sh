@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 find . -maxdepth 1 -type f ! -name collect_dotfiles.sh ! -name distribute_dotfiles.sh -delete
 rm -rf nvim
 mkdir nvim/config -p

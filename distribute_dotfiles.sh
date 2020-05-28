@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 mkdir ~/.config/nvim/config -p
 
 cp .bash_aliases ~/.bash_aliases
