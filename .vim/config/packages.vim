@@ -3,10 +3,12 @@ call plug#begin('~/.vim/plugged/')
 
 " Colorscheme
 Plug 'morhetz/gruvbox'
+Plug 'fcpg/vim-fahrenheit'
 
 " Syntax highlighting, autocomplete and language support
 Plug 'sheerun/vim-polyglot'                     " Syntax highlighting
 Plug 'cohama/lexima.vim'                        " Bracket pairs
+Plug 'preservim/nerdcommenter'                  " Commenting
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocomplete
 Plug 'rust-lang/rust.vim'                       " Rust lang support
 Plug 'rhysd/vim-clang-format'                   " Clang-format helper for vim required package 'clang-format' to be installed in system
@@ -33,20 +35,27 @@ call plug#end()
 
 " ========================= Custom Settings for Packages ==========================================
 
-colorscheme gruvbox         " Best Color Scheme ever
-"colorscheme morning        " Testing
+"colorscheme gruvbox         " Best Color Scheme ever
+colorscheme fahrenheit      " Testing
 
 " Vim-airline settings
 let g:airline_powerline_fonts            = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme                      = 'luna'
 
+" Nerd Commenter settings
+" Use Ctrl + / to toggle comments
+" Vim registers / as _ so it's okay to user Ctrl + /
+vmap <C-_> <plug>NERDCommenterToggle
+nmap <C-_> <plug>NERDCommenterToggle
+
 " Autoformat on save
-let g:rustfmt_autosave         = 1
-let g:clang_format#auto_format = 1
+let g:rustfmt_autosave               = 1
+let g:clang_format#auto_format       = 1
+let g:clang_format#detect_style_file = 1
 
 " Goyo (Zen Mode) settings
-nnoremap <Leader>g :Goyo<CR>
+nmap <Leader>g :Goyo<CR>
 let g:goyo_width  = 80
 let g:goyo_height = "90%"
 let g:goyo_linenr = 2       " Show line numbers in zen mode
@@ -56,8 +65,8 @@ nmap ga <Plug>(EasyAlign)
 
 " Fzf settings
 let g:fzf_preview_window = 'right:50%'
-nnoremap <C-f> :FZF<CR>
-inoremap <C-f> :FZF<CR>
+nmap <C-f> :FZF<CR>
+imap <C-f> <ESC>:FZF<CR>
 
 " ========================= NERDTree Settings =====================================================
 
@@ -66,7 +75,14 @@ nmap     <Leader>n :NERDTreeToggle<Enter>
 nnoremap <silent>  <Leader>nf :NERDTreeFind<CR>
 
 " Ignore these folders
-let g:NERDTreeIgnore = ['^[Tt]arget$', '^[Bb]uild$', '^[Dd]ist$', '^[Ee]nv$', '^__pycache__$']
+let g:NERDTreeIgnore = [
+            \ '^[Tt]arget$',
+            \ '^[Bb]uild$',
+            \ '^[Dd]ist$',
+            \ '^[Ee]nv$',
+            \ '^__pycache__$',
+            \ '^node_modules$'
+            \]
 
 " Open NERDTree by default and close if it is the only tab open
 autocmd StdinReadPre * let s:std_in=1

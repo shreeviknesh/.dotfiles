@@ -1,3 +1,12 @@
+" Coc extensions
+let g:coc_global_extensions = [
+            \ 'coc-clangd',
+            \ 'coc-rust-analyzer',
+            \ 'coc-python',
+            \ 'coc-prettier',
+            \ 'coc-tsserver',
+            \]
+
 " Taken from COC documentation
 function! s:check_back_space() abort
     let col = col('.') - 1
@@ -19,6 +28,10 @@ fun! GoCoc()
     nmap <buffer> <leader>gy <Plug>(coc-type-definition)
     nmap <buffer> <leader>gi <Plug>(coc-implementation)
     nmap <buffer> <leader>gr <Plug>(coc-references)
+
+    " Refactor/Rename the token
+    nmap     <buffer> <leader>rr <Plug>(coc-rename)
+
     nnoremap <buffer> <leader>cr :CocRestart
 endfun
 

@@ -6,13 +6,14 @@ set nocompatible
 
 syntax on
 set encoding=utf-8
-set fileformat=unix
+set fileformat=unix         " To avoid errors
 set nu rnu                  " Line numbering
 set noerrorbells visualbell " No sounds at all
 set t_vb=                   " No flashing pls
 
 set cmdheight=2             " Give more space for displaying messages
 set showcmd                 " Show the current command that is being typed
+set signcolumn=yes          " Always show the gutter
 set hidden                  " Buffers can exist in the background
 set updatetime=50           " Having higher updatetimes causes lag
 
@@ -26,7 +27,7 @@ set colorcolumn=100         " Column width 100
 
 augroup ColumnColor         " Overwrite the colorcolumn color set by the colorscheme to GREEN
     autocmd!
-    autocmd ColorScheme * highlight ColorColumn ctermbg=green ctermfg=black
+    autocmd ColorScheme * highlight ColorColumn ctermbg=95 ctermfg=black
 augroup END
 
 set splitbelow splitright   " The splits should be intuitive
@@ -61,9 +62,11 @@ nnoremap <Up>    :echoe "Use k"<CR>
 nnoremap <Down>  :echoe "Use j"<CR>
 
 " Unhighlight search on double escape
-nnoremap <silent> <esc><esc> :noh<CR><esc><esc>
+nnoremap <silent> <ESC> :noh<CR><ESC>
 " Use ii to to to normal mode from insert mode
-inoremap ii <esc>
+inoremap ii <ESC>
+" Use shift-tab to de-tab
+inoremap <S-Tab> <ESC><<i
 
 " Remaping shift+tab to switch between buffers
 nnoremap <silent> <tab>   :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR> :bnext<CR>
@@ -94,16 +97,6 @@ vnoremap K :m '<-2<CR>gv=gv
 " Reload configuration and open config files
 nnoremap <Leader><F5> :source $MYVIMRC <CR>
 command! -nargs=* EditConfig up | execute "next ~/.vimrc ~/.vim/config/*.vim" <q-args>
-
-" WSL yank support
-" Actually pretty useless, I need the inverse BUT CAN'T FIND IT
-let s:clip = '/mnt/c/Windows/System32/clip.exe'
-if executable(s:clip)
-    augroup WSLYank
-        autocmd!
-        autocmd TextYankPost * if v:event.operator ==# 'y' | call system('cat|' . s:clip, @0) | endif
-    augroup END
-end
 
 " ========================= Import All other settings =============================================
 
