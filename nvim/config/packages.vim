@@ -1,9 +1,9 @@
 " ========================= Installing Packages ===================================================
-call plug#begin('~/.vim/plugged/')
+call plug#begin('~/.config/nvim/plugged/')
 
 " Colorscheme
 Plug 'morhetz/gruvbox'
-Plug 'fcpg/vim-fahrenheit'
+"Plug 'fcpg/vim-fahrenheit'
 
 " Syntax highlighting, autocomplete and language support
 Plug 'sheerun/vim-polyglot'                     " Syntax highlighting
@@ -35,8 +35,7 @@ call plug#end()
 
 " ========================= Custom Settings for Packages ==========================================
 
-"colorscheme gruvbox         " Best Color Scheme ever
-colorscheme fahrenheit      " Testing
+colorscheme gruvbox         " Best Color Scheme ever
 
 " Vim-airline settings
 let g:airline_powerline_fonts            = 1
@@ -46,7 +45,7 @@ let g:airline_theme                      = 'luna'
 " Nerd Commenter settings
 " Use Ctrl + / to toggle comments
 " Vim registers / as _ so it's okay to user Ctrl + /
-vmap <C-_> <plug>NERDCommenterToggle
+vmap <C-_> <plug>NERDCommenterToggle<CR>gv
 nmap <C-_> <plug>NERDCommenterToggle
 
 " Autoformat on save

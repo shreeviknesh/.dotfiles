@@ -11,10 +11,9 @@ set nu rnu                  " Line numbering
 set noerrorbells visualbell " No sounds at all
 set t_vb=                   " No flashing pls
 
-set cmdheight=2             " Give more space for displaying messages
 set showcmd                 " Show the current command that is being typed
+set cmdheight=2             " Give more space for displaying messages
 set signcolumn=yes          " Always show the gutter
-set hidden                  " Buffers can exist in the background
 set updatetime=50           " Having higher updatetimes causes lag
 
 set autochdir               " Automatically switch working directory to the file path
@@ -25,9 +24,12 @@ set background=dark         " Dark mode is the boss
 set cursorline              " Highlight current line
 set colorcolumn=100         " Column width 100
 
+set termguicolors
+set t_Co=256
+
 augroup ColumnColor         " Overwrite the colorcolumn color set by the colorscheme to GREEN
     autocmd!
-    autocmd ColorScheme * highlight ColorColumn ctermbg=95 ctermfg=black
+    autocmd ColorScheme * highlight ColorColumn ctermbg=lightgreen ctermfg=black guibg=lightgreen guifg=black
 augroup END
 
 set splitbelow splitright   " The splits should be intuitive
@@ -46,10 +48,10 @@ augroup END
 
 " ========================= Vim Files Config ======================================================
 
-set noswapfile             " None of that ugly stuff
-set nobackup               " Don't take backup
-set undofile               " Persistent undo file
-set undodir=~/.vim/undodir " Persistent undo file directory
+set noswapfile                     " None of that ugly stuff
+set nobackup                       " Don't take backup
+set undofile                       " Persistent undo file
+set undodir=~/.config/nvim/undodir " Persistent undo file directory
 
 " ========================= Remaps ================================================================
 let mapleader  = " "
@@ -96,11 +98,11 @@ vnoremap K :m '<-2<CR>gv=gv
 
 " Reload configuration and open config files
 nnoremap <Leader><F5> :source $MYVIMRC <CR>
-command! -nargs=* EditConfig up | execute "next ~/.vimrc ~/.vim/config/*.vim" <q-args>
+command! -nargs=* EditConfig up | execute "next ~/.config/nvim/init.vim ~/.config/nvim/config/*.vim" <q-args>
 
 " ========================= Import All other settings =============================================
 
-:for f in split(globpath('~/.vim/config/', '*.vim'), '\n')
+:for f in split(globpath('~/.config/nvim/config', '*.vim'), '\n')
 :   execute 'source' f
 :endfor
 

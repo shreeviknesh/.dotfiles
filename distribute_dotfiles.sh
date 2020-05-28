@@ -1,8 +1,8 @@
 cp .bash_aliases ~/.bash_aliases
 cp .bashrc ~/.bashrc
 cp .p10k.zsh ~/.p10k.zsh
-cp .vimrc ~/.vimrc
 cp .zshrc ~/.zshrc
+cp init.vim ~/.config/nvim/init.vim
 
-mkdir ~/.vim/config -p
-cp .vim/config/*.vim ~/.vim/config/
+mkdir ~/.config/nvim/config -p
+cp ./nvim/config/*.vim ~/.config/nvim/config/
