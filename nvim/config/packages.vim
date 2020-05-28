@@ -3,7 +3,7 @@ call plug#begin('~/.config/nvim/plugged/')
 
 " Colorscheme
 Plug 'morhetz/gruvbox'
-"Plug 'fcpg/vim-fahrenheit'
+Plug 'fcpg/vim-fahrenheit'
 
 " Syntax highlighting, autocomplete and language support
 Plug 'sheerun/vim-polyglot'                     " Syntax highlighting
@@ -36,6 +36,7 @@ call plug#end()
 " ========================= Custom Settings for Packages ==========================================
 
 colorscheme gruvbox         " Best Color Scheme ever
+"colorscheme fahrenheit
 
 " Vim-airline settings
 let g:airline_powerline_fonts            = 1

@@ -19,10 +19,15 @@ set updatetime=50           " Having higher updatetimes causes lag
 set autochdir               " Automatically switch working directory to the file path
 set incsearch               " Incremental search
 set hlsearch                " Highlight the search
+"if has("nvim")
+    "set inccommand=nosplit      " Replace command incremental search
+"endif
 
 set background=dark         " Dark mode is the boss
 set cursorline              " Highlight current line
 set colorcolumn=100         " Column width 100
+
+set clipboard=unnamedplus
 
 set termguicolors
 set t_Co=256
@@ -67,12 +72,12 @@ nnoremap <Down>  :echoe "Use j"<CR>
 nnoremap <silent> <ESC> :noh<CR><ESC>
 " Use ii to to to normal mode from insert mode
 inoremap ii <ESC>
-" Use shift-tab to de-tab
+" Use shift-Tab to de-tab
 inoremap <S-Tab> <ESC><<i
 
-" Remaping shift+tab to switch between buffers
-nnoremap <silent> <tab>   :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR> :bnext<CR>
-nnoremap <silent> <s-tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR> :bprevious<CR>
+" Remaping shift+Tab to switch between buffers
+nnoremap <silent> <Tab> :bnext<CR>
+nnoremap <silent> <S-Tab> :bprevious<CR>
 
 " Switching between buffers
 map <leader>h :wincmd h<CR>
