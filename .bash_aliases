@@ -14,7 +14,12 @@ alias gpus="git push"
 # Add all, commit with the message and push
 gacp() {
     if (( $# == 1 )); then
-        eval "git add . && git commit -m $* && git push"
+        echo "$ git add ."
+        eval "git add ."
+        echo "$ gcm \"$*\""
+        eval "gcm \"$*\""
+        echo "$ git push"
+        eval "git push"
     else
         echo "Invalid number of arguments. Requires a commit message."
     fi
@@ -25,10 +30,13 @@ gacp() {
 # - if it doesn't, it's one of my own repositories
 gcl() {
     if [[ $* = https* ]]; then
+        echo "$ git clone $*"
         eval "git clone $*"
     elif [[ $* = */* ]]; then
+        echo "$ git clone https://github.com/$*"
         eval "git clone https://github.com/$*"
     else
+        echo "$ git clone https://github.com/shreeviknesh/$*"
         eval "git clone https://github.com/shreeviknesh/$*"
     fi
 }
@@ -36,8 +44,10 @@ gcl() {
 # git add function
 ga() {
     if (( $# > 0)); then
+        echo "$ git add $*"
         eval "git add $*"
     else
+        echo "$ git add ."
         eval "git add ."
     fi
 }
