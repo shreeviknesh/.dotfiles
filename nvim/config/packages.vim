@@ -3,12 +3,12 @@ call plug#begin('~/.config/nvim/plugged/')
 
 " Colorscheme
 Plug 'morhetz/gruvbox'
-Plug 'fcpg/vim-fahrenheit'
 
 " Syntax highlighting, autocomplete and language support
 Plug 'sheerun/vim-polyglot'                     " Syntax highlighting
 Plug 'cohama/lexima.vim'                        " Bracket pairs
 Plug 'preservim/nerdcommenter'                  " Commenting
+Plug 'Yggdroot/indentLine'                      " Show indentation levels
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocomplete
 Plug 'rust-lang/rust.vim'                       " Rust lang support
 Plug 'rhysd/vim-clang-format'                   " Clang-format helper for vim required package 'clang-format' to be installed in system
@@ -36,7 +36,7 @@ call plug#end()
 " ========================= Custom Settings for Packages ==========================================
 
 colorscheme gruvbox         " Best Color Scheme ever
-"colorscheme fahrenheit
+"colorscheme morning
 
 " Vim-airline settings
 let g:airline_powerline_fonts            = 1
@@ -44,10 +44,14 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme                      = 'luna'
 
 " Nerd Commenter settings
-" Use Ctrl + / to toggle comments
-" Vim registers / as _ so it's okay to user Ctrl + /
-vmap <C-_> <plug>NERDCommenterToggle<CR>gv
-nmap <C-_> <plug>NERDCommenterToggle
+" Use Leader + / to toggle comments
+vmap <Leader>/ <plug>NERDCommenterToggle<CR>gv
+nmap <Leader>/ <plug>NERDCommenterToggle
+
+" For indentLine to work properly
+set conceallevel=1
+"let g:indentLine_char      = '⸽' " The character that is used as the bar
+"let g:indentLine_setColors = 0   " Let colorscheme decide the color of the bar
 
 " Autoformat on save
 let g:rustfmt_autosave               = 1

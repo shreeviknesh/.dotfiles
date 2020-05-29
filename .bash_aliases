@@ -10,6 +10,15 @@ alias gf="git fetch"
 alias gi="git init"
 alias gpul="git pull"
 alias gpus="git push"
+#LEGENDARY
+# Add all, commit with the message and push
+gacp() {
+    if (( $# == 1 )); then
+        eval "git add . && git commit -m $* && git push"
+    else
+        echo "Invalid number of arguments. Requires a commit message."
+    fi
+}
 
 # git clone function
 # - the whole path is the repo name if it starts with https
@@ -17,6 +26,8 @@ alias gpus="git push"
 gcl() {
     if [[ $* = https* ]]; then
         eval "git clone $*"
+    elif [[ $* = */* ]]; then
+        eval "git clone https://github.com/$*"
     else
         eval "git clone https://github.com/shreeviknesh/$*"
     fi

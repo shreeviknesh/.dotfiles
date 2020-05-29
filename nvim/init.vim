@@ -19,18 +19,18 @@ set updatetime=50           " Having higher updatetimes causes lag
 set autochdir               " Automatically switch working directory to the file path
 set incsearch               " Incremental search
 set hlsearch                " Highlight the search
-"if has("nvim")
-    "set inccommand=nosplit      " Replace command incremental search
-"endif
+if has("nvim")
+    set inccommand=nosplit      " Replace command incremental search
+endif
 
 set background=dark         " Dark mode is the boss
 set cursorline              " Highlight current line
 set colorcolumn=100         " Column width 100
 
-set clipboard=unnamedplus
+set clipboard=unnamedplus   " System clipboard support
 
-set termguicolors
 set t_Co=256
+set termguicolors           " Let vim choose the colors
 
 augroup ColumnColor         " Overwrite the colorcolumn color set by the colorscheme to GREEN
     autocmd!
@@ -61,6 +61,10 @@ set undodir=~/.config/nvim/undodir " Persistent undo file directory
 " ========================= Remaps ================================================================
 let mapleader  = " "
 set timeoutlen=200
+
+" Save using Ctrl-S
+nnoremap <C-s> :w <CR>
+inoremap <C-s> <ESC>:w<CR>i
 
 " Stop using arrow keys dude
 nnoremap <Left>  :echoe "Use h"<CR>
@@ -104,6 +108,10 @@ vnoremap K :m '<-2<CR>gv=gv
 " Reload configuration and open config files
 nnoremap <Leader><F5> :source $MYVIMRC <CR>
 command! -nargs=* EditConfig up | execute "next ~/.config/nvim/init.vim ~/.config/nvim/config/*.vim" <q-args>
+
+" Relative numbers not in insert mode
+"autocmd InsertEnter * :set norelativenumber
+"autocmd InsertLeave * :set relativenumber
 
 " ========================= Import All other settings =============================================
 
