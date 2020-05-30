@@ -14,8 +14,9 @@ Plug 'rust-lang/rust.vim'                           " Rust lang support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  } " Golang support
 Plug 'rhysd/vim-clang-format'                       " Clang-format helper for vim 'clang-format' has to be installed in system
 
-" Statusline for vim
-Plug 'vim-airline/vim-airline'
+" Statusline and tabs for vim
+Plug 'itchyny/lightline.vim' " Statusline for vim
+Plug 'ap/vim-buftabline'     " Show buffers as tabs
 
 " Directories and files
 Plug 'scrooloose/nerdtree'                                       " Directory explorer
@@ -42,10 +43,6 @@ colorscheme gruvbox         " Best Color Scheme ever
 " Use Leader + / to toggle comments in normal and visual modes
 vmap <Leader>/ <plug>NERDCommenterToggle<CR>gv
 nmap <Leader>/ <plug>NERDCommenterToggle
-
-" Vim-airline settings
-let g:airline_powerline_fonts            = 1
-let g:airline#extensions#tabline#enabled = 1
 
 " For indentLine to work properly
 set conceallevel=1

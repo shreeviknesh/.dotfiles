@@ -14,13 +14,13 @@ set showcmd                 " Show the current command that is being typed
 set signcolumn=yes          " Always show the gutter
 set updatetime=50           " Having higher updatetimes causes lag
 
-set autochdir               " Automatically switch working directory to the file path
-set incsearch hlsearch      " Incremental search and highlight the search
-set smartcase ignorecase    " Search case is inferred
-let @/ = ""                 " Initial search should be empty
-set scrolloff=7             " Always have n lines above/below the cursor
+set autochdir              " Automatically switch working directory to the file path
+set incsearch hlsearch     " Incremental search and highlight the search
+set smartcase ignorecase   " Search case is inferred
+let @/ = ""                " Initial search should be empty
+set scrolloff=7            " (CAUSES PROBLEMS) Always have n lines above/below the cursor
 if has("nvim")
-    set inccommand=nosplit  " Replace command incremental search
+    set inccommand=nosplit " Replace command incremental search
 endif
 
 set background=dark         " Dark mode is the boss
@@ -33,7 +33,7 @@ set clipboard=unnamedplus   " System clipboard support
 
 set splitbelow splitright   " The splits should be intuitive
 
-" ========================= Tabs/Indentation Config ===============================================
+" ========================= Indentation Config ===============================================
 
 set tabstop=4 softtabstop=4 shiftwidth=4          " Set tab length to be 4
 set expandtab                                     " Expand tabs to spaces
