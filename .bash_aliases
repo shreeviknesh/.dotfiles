@@ -22,7 +22,7 @@ alias gpus="echo_and_eval git push"
 gacp() {
     if (( $# == 1 )); then
         echo_and_eval "git add ."
-        echo_and_eval "gcm \"$*\""
+        echo_and_eval "git commit -m \"$*\""
         echo_and_eval "git push"
     else
         echo "Invalid number of arguments. Requires a commit message."

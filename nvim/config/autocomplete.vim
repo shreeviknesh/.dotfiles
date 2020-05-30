@@ -22,15 +22,13 @@ fun! GoCoc()
     inoremap <buffer> <silent><expr> <C-space> coc#refresh()
 
     " GoTo code navigation.
-    nmap <buffer> <leader>gd <Plug>(coc-definition)
-    nmap <buffer> <leader>gy <Plug>(coc-type-definition)
-    nmap <buffer> <leader>gi <Plug>(coc-implementation)
-    nmap <buffer> <leader>gr <Plug>(coc-references)
+    nmap <buffer> gd <Plug>(coc-definition)
+    nmap <buffer> gy <Plug>(coc-type-definition)
+    nmap <buffer> gi <Plug>(coc-implementation)
+    nmap <buffer> gr <Plug>(coc-references)
 
     " Refactor/Rename the token
-    nmap     <buffer> <leader>rr <Plug>(coc-rename)
-
-    nnoremap <buffer> <leader>cr :CocRestart
+    nmap <buffer> rr <Plug>(coc-rename)
 endfun
 
 fun! TrimWhiteSpace()
