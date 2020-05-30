@@ -2,9 +2,7 @@
 let g:coc_global_extensions = [
             \ 'coc-clangd',
             \ 'coc-rust-analyzer',
-            \ 'coc-python',
-            \ 'coc-prettier',
-            \ 'coc-tsserver',
+            \ 'coc-go',
             \]
 
 " Taken from COC documentation
@@ -42,4 +40,4 @@ fun! TrimWhiteSpace()
 endfun
 
 autocmd BufWritePre * :call TrimWhiteSpace()
-autocmd FileType cpp,cxx,h,hpp,c,rust,python :call GoCoc()
+autocmd FileType cpp,cxx,h,hpp,c,rust,go :call GoCoc()

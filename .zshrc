@@ -115,6 +115,9 @@ npm set prefix ~/.npm; path+=$HOME/.npm/bin; path+=./node_modules/.bin
 # Rust-lang support
 path+=$HOME/.cargo/env
 
+# Golang support
+path+=/usr/local/go/bin
+
 # Custom aliases
 if [ -e $HOME/.bash_aliases ]; then
     source $HOME/.bash_aliases
