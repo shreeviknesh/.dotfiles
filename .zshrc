@@ -117,6 +117,7 @@ path+=$HOME/.cargo/env
 
 # Golang support
 path+=/usr/local/go/bin
+export GOPATH=$HOME/.go
 
 # Custom aliases
 if [ -e $HOME/.bash_aliases ]; then

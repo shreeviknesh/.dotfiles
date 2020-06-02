@@ -14,7 +14,7 @@ set showcmd                 " Show the current command that is being typed
 set signcolumn=yes          " Always show the gutter
 set updatetime=50           " Having higher updatetimes causes lag
 
-set autochdir              " Automatically switch working directory to the file path
+"set autochdir              " Automatically switch working directory to the file path
 set incsearch hlsearch     " Incremental search and highlight the search
 set smartcase ignorecase   " Search case is inferred
 let @/ = ""                " Initial search should be empty

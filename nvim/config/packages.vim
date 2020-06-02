@@ -2,13 +2,17 @@
 call plug#begin('~/.config/nvim/plugged/')
 
 " Colorscheme
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 
 " Syntax highlighting, autocomplete and language support
-Plug 'sheerun/vim-polyglot'                         " Syntax highlighting
-Plug 'jiangmiao/auto-pairs'                         " Bracker pairs
-Plug 'preservim/nerdcommenter'                      " Commenting
-Plug 'Yggdroot/indentLine'                          " Show indentation levels
+Plug 'sheerun/vim-polyglot'        " Syntax highlighting
+Plug 'jiangmiao/auto-pairs'        " Bracker pairs
+Plug 'luochen1990/rainbow'         " Bracket colorizer
+Plug 'unblevable/quick-scope'      " Movement helper in vim
+Plug 'preservim/nerdcommenter'     " Commenting
+Plug 'Yggdroot/indentLine'         " Show indentation levels
+Plug 'norcalli/nvim-colorizer.lua' " Color highlighter
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}     " Autocomplete
 Plug 'rust-lang/rust.vim'                           " Rust lang support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  } " Golang support
@@ -24,6 +28,7 @@ Plug 'ryanoasis/vim-devicons'                                    " File icons in
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                   " File colors in NERDTree
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': '~/.fzf/install' } " Fuzzy finder
 Plug 'junegunn/fzf.vim'                                          " Fuzzy finder vim helper
+Plug 'airblade/vim-rooter'                                       " Autochdir to the root of the project
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -37,7 +42,11 @@ call plug#end()
 
 " ========================= Custom Settings for Packages ==========================================
 
-colorscheme gruvbox         " Best Color Scheme ever
+let g:gruvbox_contrast_dark = 'hard' " Add this before setting the colorscheme
+colorscheme gruvbox                  " Best Color Scheme ever
+
+" Rainbow (matching pair colorizer) settings
+let g:rainbow_active = 1
 
 " Nerd Commenter settings
 " Use Leader + / to toggle comments in normal and visual modes
