@@ -24,11 +24,8 @@ Plug 'ap/vim-buftabline'     " Show buffers as tabs
 
 " Directories and files
 Plug 'scrooloose/nerdtree'                                       " Directory explorer
-Plug 'ryanoasis/vim-devicons'                                    " File icons in NERDTree
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                   " File colors in NERDTree
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': '~/.fzf/install' } " Fuzzy finder
 Plug 'junegunn/fzf.vim'                                          " Fuzzy finder vim helper
-Plug 'airblade/vim-rooter'                                       " Autochdir to the root of the project
+"Plug 'airblade/vim-rooter'                                       " Autochdir to the root of the project
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -53,13 +50,10 @@ let g:rainbow_active = 1
 vmap <Leader>/ <plug>NERDCommenterToggle<CR>gv
 nmap <Leader>/ <plug>NERDCommenterToggle
 
-" For indentLine to work properly
-set conceallevel=1
-
 " Autoformat on save (rust.vim and clangd)
 let g:rustfmt_autosave               = 1
 let g:clang_format#auto_format       = 1
-let g:clang_format#detect_style_file = 1
+let g:clang_format#detect_style_file = 1 " Automatically find .clang-format file
 
 " vim-go settings
 let g:go_fmt_autosave             = 1           " Auto format on save
@@ -114,10 +108,5 @@ let NERDTreeAutoDeleteBuffer                 = 1 " Automatically delete the buff
 let NERDTreeQuitOnOpen                       = 1 " Quit NERDTree when a file is opened
 let NERDTreeDirArrowExpandable               = "►"
 let NERDTreeDirArrowCollapsible              = "▼"
-
-" vim-nerdtree-syntax-highlight settings to highlight filename along with icons
-let g:NERDTreeFileExtensionHighlightFullName = 1
-let g:NERDTreeExactMatchHighlightFullName    = 1
-let g:NERDTreePatternMatchHighlightFullName  = 1
 
 " ========================= END ===================================================================

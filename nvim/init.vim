@@ -14,7 +14,7 @@ set showcmd                 " Show the current command that is being typed
 set signcolumn=yes          " Always show the gutter
 set updatetime=50           " Having higher updatetimes causes lag
 
-"set autochdir              " Automatically switch working directory to the file path
+set autochdir              " Automatically switch working directory to the file path
 set incsearch hlsearch     " Incremental search and highlight the search
 set smartcase ignorecase   " Search case is inferred
 let @/ = ""                " Initial search should be empty
@@ -61,6 +61,7 @@ set timeoutlen=200
 " Save buffer using Ctrl-S
 nnoremap <C-s> :w <CR>
 inoremap <C-s> <ESC>:w<CR>i
+
 " Close buffer using Ctrl-W
 nnoremap <C-w> :bd<CR>
 inoremap <C-w> <ESC>:bd<CR>
@@ -87,7 +88,6 @@ map <leader>h :wincmd h<CR>
 map <leader>j :wincmd j<CR>
 map <leader>k :wincmd k<CR>
 map <leader>l :wincmd l<CR>
-
 
 " Basically Alt-Up or Alt-Down functionality
 " Move the selected contents up or down with highlight and format

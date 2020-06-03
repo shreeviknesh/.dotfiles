@@ -31,6 +31,7 @@ fun! GoCoc()
     nmap <buffer> rr <Plug>(coc-rename)
 endfun
 
+" A function that removes trailing whitespaces
 fun! TrimWhiteSpace()
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e
