@@ -11,12 +11,18 @@ alias cls="clear && ls -a"
 # Custom git aliases
 alias g="echo_and_eval git"
 alias gs="echo_and_eval git status"
-alias gcm="git commit -m"
-alias gcam="git commit -am"
 alias gf="echo_and_eval git fetch"
 alias gi="echo_and_eval git init"
 alias gpul="echo_and_eval git pull"
 alias gpus="echo_and_eval git push"
+
+gcm() {
+    echo_and_eval "git commit -m \"$*\""
+}
+
+gcam() {
+    echo_and_eval "git commit -am \"$*\""
+}
 
 # Add all, commit with the message and push
 gacp() {

@@ -8,7 +8,6 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'sheerun/vim-polyglot'        " Syntax highlighting
 Plug 'jiangmiao/auto-pairs'        " Bracker pairs
 Plug 'luochen1990/rainbow'         " Bracket colorizer
-Plug 'unblevable/quick-scope'      " Movement helper in vim
 Plug 'preservim/nerdcommenter'     " Commenting
 Plug 'Yggdroot/indentLine'         " Show indentation levels
 Plug 'norcalli/nvim-colorizer.lua' " Color highlighter

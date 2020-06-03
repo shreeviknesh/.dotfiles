@@ -3,6 +3,9 @@ let g:coc_global_extensions = [
             \ 'coc-clangd',
             \ 'coc-rust-analyzer',
             \ 'coc-go',
+            \ 'coc-prettier',
+            \ 'coc-css',
+            \ 'coc-eslint',
             \]
 
 " Taken from COC documentation
