@@ -23,7 +23,6 @@ Plug 'ap/vim-buftabline'     " Show buffers as tabs
 
 " Directories and files
 Plug 'scrooloose/nerdtree'                                       " Directory explorer
-Plug 'junegunn/fzf.vim'                                          " Fuzzy finder vim helper
 "Plug 'airblade/vim-rooter'                                       " Autochdir to the root of the project
 
 " Git

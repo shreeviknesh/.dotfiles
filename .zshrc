@@ -16,7 +16,6 @@ export ZSH="/home/shree/.oh-my-zsh"
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -111,6 +110,7 @@ path+=$HOME/.cargo/env
 
 # Golang support
 path+=/usr/local/go/bin
+export GOROOT=/usr/local/go
 export GOPATH=$HOME/.go
 
 # Custom aliases
@@ -119,7 +119,6 @@ if [ -e $HOME/.bash_aliases ]; then
 fi
 
 # Fzf settings
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border'
 export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git'
 
